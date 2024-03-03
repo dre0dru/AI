@@ -1,34 +1,14 @@
 {
     "name": "Dre0Dru.BehaviourTree",
     "rootNamespace": "Dre0Dru.BehaviourTree",
-    "references": [
-        "GUID:49b49c76ee64f6b41bf28ef951cb0e50",
-        "GUID:4737f9291e01a714ea8410c173a88417",
-        "GUID:0a6f732717fd0794797e26b720104833",
-        "GUID:cc14c2981b4eda44496e1ae5baddaae6",
-        "GUID:f11e37a5a5be020458bc0db7dab7f3e8"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": [
-        "RUNTIME_EXTENSIONS_SUPPORT",
-        "SER_REF_SELECTOR_SUPPORT"
-    ],
-    "versionDefines": [
-        {
-            "name": "com.mackysoft.serializereference-extensions",
-            "expression": "",
-            "define": "SER_REF_SELECTOR_SUPPORT"
-        },
-        {
-            "name": "com.dre0dru.runtimeextensions",
-            "expression": "",
-            "define": "RUNTIME_EXTENSIONS_SUPPORT"
-        }
-    ],
+    "defineConstraints": [],
+    "versionDefines": [],
     "noEngineReferences": false
 }
