@@ -15,6 +15,10 @@ namespace Dre0Dru.BehaviourTree.Tasks.Composite
         {
         }
 
+        public SequenceNode(params INode[] children) : base(children)
+        {
+        }
+
         protected override NodeStatus OnTick(float dt)
         {
             var status = Children[_currentChildIndex].Tick(dt);

@@ -17,6 +17,10 @@ namespace Dre0Dru.BehaviourTree.Tasks.Composite
         {
         }
 
+        public RandomSelectorNode(params INode[] children) : base(children)
+        {
+        }
+
         protected override void OnStart()
         {
             _randomChildIndex = Random.Range(0, Count);

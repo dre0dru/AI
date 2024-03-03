@@ -15,6 +15,10 @@ namespace Dre0Dru.BehaviourTree.Tasks.Composite
         {
         }
 
+        public SelectorNode(params INode[] children) : base(children)
+        {
+        }
+
         protected override void OnStart()
         {
             _currentChildIndex = 0;

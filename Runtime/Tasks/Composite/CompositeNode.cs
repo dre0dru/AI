@@ -18,6 +18,11 @@ namespace Dre0Dru.BehaviourTree.Tasks.Composite
         {
             _children = children;
         }
+        
+        protected CompositeNode(params INode[] children)
+        {
+            _children = children;
+        }
 
         public CompositeNode AddChild(INode child)
         {
