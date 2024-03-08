@@ -1,0 +1,17 @@
+{
+    "name": "Dre0Dru.Blackboard",
+    "rootNamespace": "Dre0Dru.Blackboard",
+    "references": [
+        "GUID:858f01292afdc66489a4648c01d9ca1e",
+        "GUID:b5f9a495fd890eb4795fa4a4b3dc6cba"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
