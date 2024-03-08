@@ -1,6 +1,6 @@
 {
     "name": "Dre0Dru.BehaviourTree.Editor.Tests",
-    "rootNamespace": "",
+    "rootNamespace": "Dre0Dru.BehaviourTree.Editor.Tests",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
