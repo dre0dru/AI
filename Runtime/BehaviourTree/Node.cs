@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using Dre0Dru.Blackboard;
 using UnityEngine;
 
 namespace Dre0Dru.BehaviourTree
@@ -16,6 +19,8 @@ namespace Dre0Dru.BehaviourTree
         private int _startCount = 0;
 
         public NodeStatus Status => _status;
+        public IBlackboard Blackboard { get; set; }
+        
         internal bool IsStarted => _isStarted;
         internal bool WasAborted => _wasAborted;
         internal int StartCount => _startCount;
@@ -79,6 +84,13 @@ namespace Dre0Dru.BehaviourTree
         {
             _isStarted = false;
             OnStop();
+        }
+
+        public abstract IEnumerator<INode> GetEnumerator();
+        
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

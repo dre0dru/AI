@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using Dre0Dru.Blackboard;
+using UnityEngine;
 
 namespace Dre0Dru.BehaviourTree
 {
@@ -8,6 +11,11 @@ namespace Dre0Dru.BehaviourTree
         private INode _root;
 
         public NodeStatus Status => _root.Status;
+        public IBlackboard Blackboard
+        {
+            get => _root.Blackboard;
+            set => _root.Blackboard = value;
+        }
 
         public NodeStatus Tick(float dt)
         {
@@ -17,6 +25,16 @@ namespace Dre0Dru.BehaviourTree
         public void Abort(NodeStatus abortStatus)
         {
             _root.Abort(abortStatus);
+        }
+
+        public IEnumerator<INode> GetEnumerator()
+        {
+            return _root.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return ((IEnumerable)_root).GetEnumerator();
         }
     }
 }

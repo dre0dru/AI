@@ -3,7 +3,7 @@
 namespace Dre0Dru.BehaviourTree.Tasks.Leaf
 {
     [Serializable]
-    public class DelegateNode : Node
+    public class DelegateNode : LeafNode
     {
         private readonly Func<float, NodeStatus> _delegate;
 

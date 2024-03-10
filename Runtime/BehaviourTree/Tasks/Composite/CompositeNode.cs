@@ -33,5 +33,10 @@ namespace Dre0Dru.BehaviourTree.Tasks.Composite
             _children.Add(child);
             return this;
         }
+        
+        public override IEnumerator<INode> GetEnumerator()
+        {
+            return _children.GetEnumerator();
+        }
     }
 }

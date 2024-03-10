@@ -61,7 +61,7 @@ namespace Dre0Dru.Blackboard
     }
 
     [Serializable]
-    public class Blackboard : Blackboard<string>
+    public class Blackboard : Blackboard<string>, IBlackboard
     {
         
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Dre0Dru.BehaviourTree.Tasks.Decorator
@@ -25,6 +26,11 @@ namespace Dre0Dru.BehaviourTree.Tasks.Decorator
         {
             _decorated = decorated;
             return this;
+        }
+        
+        public override IEnumerator<INode> GetEnumerator()
+        {
+            yield return _decorated;
         }
     }
 }

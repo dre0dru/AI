@@ -1,7 +1,9 @@
 {
     "name": "Dre0Dru.BehaviourTree",
     "rootNamespace": "Dre0Dru.BehaviourTree",
-    "references": [],
+    "references": [
+        "GUID:50dc1ea36c3def94dbb2aebaefa8287f"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
