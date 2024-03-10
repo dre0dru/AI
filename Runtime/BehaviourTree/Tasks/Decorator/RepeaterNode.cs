@@ -1,12 +1,24 @@
 using System;
+using UnityEngine;
 
 namespace Dre0Dru.BehaviourTree.Tasks.Decorator
 {
+    [Serializable]
     public class RepeaterNode : DecoratorNode
     {
-        private readonly int _count;
+        [SerializeField]
+        private int _count;
 
+        [SerializeField]
         private int _counter;
+
+        public RepeaterNode()
+        {
+        }
+
+        public RepeaterNode(INode decorated) : base(decorated)
+        {
+        }
 
         public RepeaterNode(INode decorated, int count) : base(decorated)
         {
@@ -42,6 +54,12 @@ namespace Dre0Dru.BehaviourTree.Tasks.Decorator
                 default:
                     throw new ArgumentOutOfRangeException(nameof(status), status, string.Empty);
             }
+        }
+
+        public RepeaterNode SetCount(int count)
+        {
+            _count = count;
+            return this;
         }
     }
 }

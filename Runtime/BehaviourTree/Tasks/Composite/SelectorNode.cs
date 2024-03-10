@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Dre0Dru.BehaviourTree.Tasks.Composite
 {
+    [Serializable]
     public class SelectorNode : CompositeNode
     {
+        [SerializeField]
         private int _currentChildIndex;
 
         public SelectorNode()

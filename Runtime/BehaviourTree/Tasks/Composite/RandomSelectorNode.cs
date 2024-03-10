@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Dre0Dru.BehaviourTree.Tasks.Composite
 {
+    [Serializable]
     public class RandomSelectorNode : CompositeNode
     {
+        [SerializeField]
         private int _randomChildIndex;
 
         internal int RandomChildIndex => _randomChildIndex;

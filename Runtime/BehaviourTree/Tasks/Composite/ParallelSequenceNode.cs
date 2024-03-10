@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Dre0Dru.BehaviourTree.Tasks.Composite
 {
+    [Serializable]
     public class ParallelSequenceNode : CompositeNode
     {
-        private readonly List<NodeStatus> _childrenLeftToExecute = new List<NodeStatus>();
+        [SerializeField]
+        private List<NodeStatus> _childrenLeftToExecute = new List<NodeStatus>();
 
         public ParallelSequenceNode()
         {

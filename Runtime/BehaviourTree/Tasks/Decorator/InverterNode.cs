@@ -2,8 +2,13 @@ using System;
 
 namespace Dre0Dru.BehaviourTree.Tasks.Decorator
 {
+    [Serializable]
     public class InverterNode : DecoratorNode
     {
+        public InverterNode()
+        {
+        }
+
         public InverterNode(INode decorated) : base(decorated)
         {
         }

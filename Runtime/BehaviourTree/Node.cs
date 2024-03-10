@@ -1,12 +1,18 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Dre0Dru.BehaviourTree
 {
+    [Serializable]
     public abstract class Node : INode
     {
+        [SerializeField]
         private NodeStatus _status;
+        [SerializeField]
         private bool _isStarted = false;
+        [SerializeField]
         private bool _wasAborted = false;
+        [SerializeField]
         private int _startCount = 0;
 
         public NodeStatus Status => _status;

@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Dre0Dru.BehaviourTree.Tasks.Composite
 {
+    [Serializable]
     public abstract class CompositeNode : Node
     {
-        private readonly IList<INode> _children;
+        [SerializeReference]
+        private IList<INode> _children;
 
         protected internal IList<INode> Children => _children;
         protected internal int Count => _children.Count;

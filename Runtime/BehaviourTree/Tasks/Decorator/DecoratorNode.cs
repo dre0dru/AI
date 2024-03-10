@@ -1,15 +1,30 @@
-﻿namespace Dre0Dru.BehaviourTree.Tasks.Decorator
+﻿using System;
+using UnityEngine;
+
+namespace Dre0Dru.BehaviourTree.Tasks.Decorator
 {
     //TODO wait until, condition w/ aborts, 
+    [Serializable]
     public abstract class DecoratorNode : Node
     {
-        private readonly INode _decorated;
+        [SerializeReference]
+        private INode _decorated;
 
         protected internal INode Decorated => _decorated;
-        
+
+        protected DecoratorNode()
+        {
+        }
+
         protected DecoratorNode(INode decorated)
         {
             _decorated = decorated;
+        }
+
+        public DecoratorNode SetDecorated(INode decorated)
+        {
+            _decorated = decorated;
+            return this;
         }
     }
 }
