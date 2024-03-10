@@ -27,7 +27,7 @@ namespace Dre0Dru.Blackboard
             _blackboard.RemoveValue(key);
     }
 
-    public class BlackboardComponent : BlackboardComponent<string>
+    public class BlackboardComponent : BlackboardComponent<string>, IBlackboard
     {
     }
 }

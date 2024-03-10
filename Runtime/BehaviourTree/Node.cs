@@ -18,9 +18,16 @@ namespace Dre0Dru.BehaviourTree
         [SerializeField]
         private int _startCount = 0;
 
+        private IBlackboard _blackboard;
+
         public NodeStatus Status => _status;
-        public IBlackboard Blackboard { get; set; }
-        
+
+        public virtual IBlackboard Blackboard
+        {
+            get => _blackboard;
+            set => _blackboard = value;
+        }
+
         internal bool IsStarted => _isStarted;
         internal bool WasAborted => _wasAborted;
         internal int StartCount => _startCount;
