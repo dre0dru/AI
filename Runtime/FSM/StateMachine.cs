@@ -4,15 +4,17 @@ using UnityEngine;
 namespace Dre0Dru.FSM
 {
     [Serializable]
-    public class StateMachine<TState> : IStateMachine<TState>
-        where TState : IState<TState>
+    public class StateMachine<TBaseState> : IStateMachine<TBaseState>
+        where TBaseState : IState<TBaseState>
     {
         [SerializeField]
-        private TState _currentState;
+        private TBaseState _currentState;
 
-        public TState CurrentState => _currentState;
+        public TBaseState CurrentState => _currentState;
 
-        public virtual bool CanEnterState(TState state)
+
+        public virtual bool CanEnterState<TState>(TState state)
+            where TState : TBaseState
         {
             ThrowIfNull(state);
 
@@ -20,7 +22,8 @@ namespace Dre0Dru.FSM
                    state.CanEnterState(_currentState);
         }
 
-        public virtual bool TryEnterState(TState state)
+        public virtual bool TryEnterState<TState>(TState state)
+            where TState : TBaseState
         {
             ThrowIfNull(state);
 
@@ -33,7 +36,8 @@ namespace Dre0Dru.FSM
             return true;
         }
 
-        public virtual void ForceEnterState(TState state)
+        public virtual void ForceEnterState<TState>(TState state)
+            where TState : TBaseState
         {
             ThrowIfNull(state);
 
@@ -44,7 +48,7 @@ namespace Dre0Dru.FSM
             _currentState.OnStateEntered(previousState);
         }
 
-        private void ThrowIfNull(TState state)
+        private void ThrowIfNull(TBaseState state)
         {
             if (state == null)
             {
@@ -56,6 +60,5 @@ namespace Dre0Dru.FSM
     [Serializable]
     public class StateMachine : StateMachine<IState>
     {
-        
     }
 }
