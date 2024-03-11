@@ -1,6 +1,6 @@
 using System;
 
-namespace Dre0Dru.BehaviourTree.Tasks.Decorator
+namespace Dre0Dru.BehaviourTree
 {
     [Serializable]
     public class InverterNode : DecoratorNode

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Dre0Dru.BehaviourTree.Tasks.Decorator
+namespace Dre0Dru.BehaviourTree
 {
     //TODO wait until, condition w/ aborts, 
     [Serializable]

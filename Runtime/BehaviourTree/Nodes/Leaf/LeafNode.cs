@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Dre0Dru.BehaviourTree.Tasks.Leaf
+namespace Dre0Dru.BehaviourTree
 {
     [Serializable]
     public abstract class LeafNode : Node

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Dre0Dru.BehaviourTree.Tasks.Leaf
+namespace Dre0Dru.BehaviourTree
 {
     [Serializable]
     public class WaitForSecondsNode : LeafNode

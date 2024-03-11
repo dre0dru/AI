@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dre0Dru.BehaviourTree.Tasks.Leaf
+namespace Dre0Dru.BehaviourTree
 {
     [Serializable]
     public class DelegateNode : LeafNode

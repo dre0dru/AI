@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Dre0Dru.BehaviourTree.Tasks.Composite
+namespace Dre0Dru.BehaviourTree
 {
     [Serializable]
     public class SequenceNode : CompositeNode
