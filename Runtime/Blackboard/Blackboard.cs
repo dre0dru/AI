@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if DRE0DRU_COLLECTIONS
+
+using System;
 using System.Collections.Generic;
 using Dre0Dru.Collections;
 using UnityEngine;
@@ -10,17 +12,17 @@ namespace Dre0Dru.Blackboard
     public class Blackboard<TKey> : IBlackboard<TKey>
     {
         [SerializeField]
-        private UDictionary<TKey, IDynamicValue> _values;
+        private UDictionary<TKey, IBlackboardValue> _values;
 
         [RequiredMember]
         public Blackboard()
         {
-            _values = new UDictionary<TKey, IDynamicValue>();
+            _values = new UDictionary<TKey, IBlackboardValue>();
         }
 
-        public Blackboard(IDictionary<TKey, IDynamicValue> values)
+        public Blackboard(IDictionary<TKey, IBlackboardValue> values)
         {
-            _values = new UDictionary<TKey, IDynamicValue>(values);
+            _values = new UDictionary<TKey, IBlackboardValue>(values);
         }
 
         public void SetValue<TValue>(TKey key, TValue value)
@@ -28,7 +30,7 @@ namespace Dre0Dru.Blackboard
         {
             if (!_values.TryGetValue(key, out var blackboardValue))
             {
-                blackboardValue = DynamicValue<TValue>.New(value);
+                blackboardValue = BlackboardValue<TValue>.New(value);
                 _values[key] = blackboardValue;
             }
             
@@ -66,3 +68,5 @@ namespace Dre0Dru.Blackboard
         
     }
 }
+
+#endif

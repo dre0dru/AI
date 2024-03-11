@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿#if DRE0DRU_COLLECTIONS
+
+using UnityEngine;
 
 namespace Dre0Dru.Blackboard
 {
@@ -31,3 +33,5 @@ namespace Dre0Dru.Blackboard
     {
     }
 }
+
+#endif

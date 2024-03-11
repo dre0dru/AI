@@ -4,11 +4,11 @@ using UnityEngine;
 namespace Dre0Dru.Blackboard
 {
     [Serializable]
-    public class DynamicValue<TActual> : IDynamicValue
+    public class BlackboardValue<TActual> : IBlackboardValue
         where TActual : class
     {
-        public static DynamicValue<TActual> New(TActual value) =>
-            new DynamicValue<TActual>()
+        public static BlackboardValue<TActual> New(TActual value) =>
+            new BlackboardValue<TActual>()
             {
                 _value = value
             };
@@ -24,10 +24,10 @@ namespace Dre0Dru.Blackboard
             where TValue : class =>
             _value = value as TActual;
 
-        public static implicit operator TActual(DynamicValue<TActual> value) =>
+        public static implicit operator TActual(BlackboardValue<TActual> value) =>
             value._value;
 
-        public static implicit operator DynamicValue<TActual>(TActual value) =>
+        public static implicit operator BlackboardValue<TActual>(TActual value) =>
             New(value);
     }
 }

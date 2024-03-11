@@ -1,7 +1,6 @@
 ﻿namespace Dre0Dru.Blackboard
 {
-    //TODO IBlackboardValue?
-    public interface IDynamicValue
+    public interface IBlackboardValue
     {
         TValue GetValue<TValue>()
             where TValue : class;
