@@ -6,11 +6,10 @@ using UnityEngine;
 namespace Dre0Dru.DecisionTree
 {
     [CreateAssetMenu(menuName = "Dre0Dru/Decision Tree/Node Asset", fileName = "Node Asset")]
-    public class NodeAsset<TNode, TQuery, TResult> : ScriptableObject, INode<TQuery, TResult>
-        where TNode : INode<TQuery, TResult>
+    public class NodeAsset<TQuery, TResult> : ScriptableObject, INode<TQuery, TResult>
     {
         [SerializeReference]
-        private TNode _root;
+        private INode<TQuery, TResult> _root;
 
         public IBlackboard Blackboard
         {

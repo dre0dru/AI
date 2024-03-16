@@ -5,11 +5,10 @@ using UnityEngine;
 
 namespace Dre0Dru.DecisionTree
 {
-    public class NodeComponent<TNode, TQuery, TResult> : MonoBehaviour, INode<TQuery, TResult>
-        where TNode : INode<TQuery, TResult>
+    public class NodeComponent<TQuery, TResult> : MonoBehaviour, INode<TQuery, TResult>
     {
         [SerializeReference]
-        private TNode _root;
+        private INode<TQuery, TResult> _root;
 
         public IBlackboard Blackboard
         {

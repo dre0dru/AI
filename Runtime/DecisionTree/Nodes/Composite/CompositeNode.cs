@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Scripting;
 
 namespace Dre0Dru.DecisionTree
 {
@@ -13,6 +14,7 @@ namespace Dre0Dru.DecisionTree
         protected internal IList<INode<TResult, TQuery>> Children => _children;
         protected internal int Count => _children.Count;
 
+        [RequiredMember]
         protected CompositeNode() : this(new List<INode<TResult, TQuery>>())
         {
             

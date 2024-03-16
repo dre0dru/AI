@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine.Scripting;
 
 namespace Dre0Dru.DecisionTree
 {
     [Serializable]
     public class SelectorNode<TResult, TQuery> : CompositeNode<TResult, TQuery>
     {
+        [RequiredMember]
         public SelectorNode()
         {
         }

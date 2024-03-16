@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Scripting;
 
 namespace Dre0Dru.DecisionTree
 {
@@ -12,6 +13,7 @@ namespace Dre0Dru.DecisionTree
 
         protected internal INode<TResult, TQuery> Decorated => _decorated;
 
+        [RequiredMember]
         protected DecoratorNode()
         {
         }
