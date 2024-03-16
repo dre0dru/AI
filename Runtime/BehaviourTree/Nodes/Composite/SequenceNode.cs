@@ -14,7 +14,7 @@ namespace Dre0Dru.BehaviourTree
         {
         }
 
-        public SequenceNode(IList<INode> children) : base(children)
+        public SequenceNode(List<INode> children) : base(children)
         {
         }
 

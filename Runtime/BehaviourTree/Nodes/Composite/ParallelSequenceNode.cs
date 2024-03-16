@@ -14,7 +14,7 @@ namespace Dre0Dru.BehaviourTree
         {
         }
 
-        public ParallelSequenceNode(IList<INode> children) : base(children)
+        public ParallelSequenceNode(List<INode> children) : base(children)
         {
         }
 

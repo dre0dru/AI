@@ -17,7 +17,7 @@ namespace Dre0Dru.BehaviourTree
         {
         }
 
-        public RandomSelectorNode(IList<INode> children) : base(children)
+        public RandomSelectorNode(List<INode> children) : base(children)
         {
         }
 

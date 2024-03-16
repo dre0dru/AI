@@ -8,24 +8,23 @@ namespace Dre0Dru.BehaviourTree
     public abstract class CompositeNode : Node
     {
         [SerializeReference]
-        private IList<INode> _children;
+        private List<INode> _children;
 
         protected internal IList<INode> Children => _children;
         protected internal int Count => _children.Count;
 
         protected CompositeNode() : this(new List<INode>())
         {
-            
         }
-        
-        protected CompositeNode(IList<INode> children)
+
+        protected CompositeNode(List<INode> children)
         {
             _children = children;
         }
-        
+
         protected CompositeNode(params INode[] children)
         {
-            _children = children;
+            _children = new List<INode>(children);
         }
 
         public CompositeNode AddChild(INode child)
@@ -33,7 +32,7 @@ namespace Dre0Dru.BehaviourTree
             _children.Add(child);
             return this;
         }
-        
+
         public override IEnumerator<INode> GetEnumerator()
         {
             return _children.GetEnumerator();
