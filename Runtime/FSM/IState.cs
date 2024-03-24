@@ -12,9 +12,4 @@
 
         void OnStateExited(TState to);
     }
-
-    public interface IState : IState<IState>
-    {
-        
-    }
 }

@@ -56,9 +56,4 @@ namespace Dre0Dru.FSM
             }
         }
     }
-
-    [Serializable]
-    public class StateMachine : StateMachine<IState>
-    {
-    }
 }
