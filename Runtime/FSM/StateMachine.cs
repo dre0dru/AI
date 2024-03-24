@@ -7,7 +7,7 @@ namespace Dre0Dru.FSM
     public class StateMachine<TBaseState> : IStateMachine<TBaseState>
         where TBaseState : IState<TBaseState>
     {
-        [SerializeField]
+        [SerializeReference]
         private TBaseState _currentState;
 
         public TBaseState CurrentState => _currentState;
