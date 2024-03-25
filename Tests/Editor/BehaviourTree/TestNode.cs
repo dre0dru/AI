@@ -1,6 +1,6 @@
 ﻿namespace Dre0Dru.BehaviourTree.Tests.Editor
 {
-    public class TestNode : Node
+    public class TestNode : LeafNode
     {
         private readonly NodeStatus _returnStatus;
 

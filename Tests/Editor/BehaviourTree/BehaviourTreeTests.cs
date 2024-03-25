@@ -1,7 +1,7 @@
 using System.Collections;
-using Dre0Dru.BehaviourTree.Tasks.Composite;
-using Dre0Dru.BehaviourTree.Tasks.Decorator;
-using Dre0Dru.BehaviourTree.Tasks.Leaf;
+using Dre0Dru.BehaviourTree;
+using Dre0Dru.BehaviourTree;
+using Dre0Dru.BehaviourTree;
 using NUnit.Framework;
 using UnityEngine.TestTools;
 
