@@ -1,6 +1,17 @@
 ﻿namespace Dre0Dru.FSM
 {
-    //TODO as composition of different interfaces
+    public interface IState
+    {
+        bool CanEnterState();
+
+        bool CanExitState();
+
+        void OnStateEntered();
+
+        void OnStateExited();
+    }
+
+    //TODO as composition of different interfaces?
     public interface IState<in TState>
         where TState : IState<TState>
     {

@@ -1,5 +1,16 @@
 namespace Dre0Dru.FSM
 {
+    public interface IStateMachine
+    {
+        IState CurrentState { get; }
+
+        bool CanEnterState(IState state);
+
+        bool TryEnterState(IState state);
+
+        void ForceEnterState(IState state);
+    }
+
     //TODO as composition of different interfaces?
     //TODO StateTransitions for data driven logic?
     public interface IStateMachine<TBaseState>
