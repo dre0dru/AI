@@ -23,4 +23,14 @@
 
         void OnStateExited(TState to);
     }
+
+    public interface IKeyedState<out TKey>
+    {
+        TKey Key { get; }
+    }
+
+    public interface IPriorityState
+    {
+        int Priority { get; }
+    }
 }

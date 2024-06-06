@@ -1,5 +1,6 @@
 namespace Dre0Dru.FSM
 {
+    //TODO split into Generic State Machine and Keyed State Machine?
     public interface IStateMachine
     {
         IState CurrentState { get; }
