@@ -22,6 +22,23 @@ namespace Dre0Dru.FSM
         public virtual void OnStateExited()
         {
         }
+
+        protected bool IsTypeOf<TState>()
+        {
+            return this is TState;
+        }
+
+        protected bool IsTypeOf<TState>(out TState? state)
+        {
+            if (this is TState casted)
+            {
+                state = casted;
+                return true;
+            }
+
+            state = default;
+            return false;
+        }
     }
 
     [Serializable]
@@ -44,6 +61,23 @@ namespace Dre0Dru.FSM
 
         public virtual void OnStateExited(TBaseState to)
         {
+        }
+
+        protected bool IsTypeOf<TState>()
+        {
+            return this is TState;
+        }
+
+        protected bool IsTypeOf<TState>(out TState? state)
+        {
+            if (this is TState casted)
+            {
+                state = casted;
+                return true;
+            }
+
+            state = default;
+            return false;
         }
     }
 }
