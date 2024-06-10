@@ -58,7 +58,7 @@ namespace Dre0Dru.FSM
 
         public TBaseState CurrentState => _currentState;
 
-        public virtual bool CanEnterState<TState>(TState state)
+        public virtual bool CanSwitchState<TState>(TState state)
             where TState : TBaseState
         {
             ThrowIfNull(state);
@@ -67,21 +67,21 @@ namespace Dre0Dru.FSM
                    state.CanEnterState(_currentState);
         }
 
-        public virtual bool TryEnterState<TState>(TState state)
+        public virtual bool TrySwitchState<TState>(TState state)
             where TState : TBaseState
         {
             ThrowIfNull(state);
 
-            if (!CanEnterState(state))
+            if (!CanSwitchState(state))
             {
                 return false;
             }
 
-            ForceEnterState(state);
+            ForceSwitchState(state);
             return true;
         }
 
-        public virtual void ForceEnterState<TState>(TState state)
+        public virtual void ForceSwitchState<TState>(TState state)
             where TState : TBaseState
         {
             ThrowIfNull(state);

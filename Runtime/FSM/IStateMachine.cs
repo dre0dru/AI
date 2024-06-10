@@ -18,13 +18,13 @@ namespace Dre0Dru.FSM
     {
         TBaseState CurrentState { get; }
 
-        bool CanEnterState<TState>(TState state)
+        bool CanSwitchState<TState>(TState state)
             where TState : TBaseState;
 
-        bool TryEnterState<TState>(TState state)
+        bool TrySwitchState<TState>(TState state)
             where TState : TBaseState;
 
-        void ForceEnterState<TState>(TState state)
+        void ForceSwitchState<TState>(TState state)
             where TState : TBaseState;
     }
 }
