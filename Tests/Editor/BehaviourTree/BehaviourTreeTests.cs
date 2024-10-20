@@ -1,7 +1,5 @@
 using System.Collections;
 using Dre0Dru.BehaviourTree;
-using Dre0Dru.BehaviourTree;
-using Dre0Dru.BehaviourTree;
 using NUnit.Framework;
 using UnityEngine.TestTools;
 
