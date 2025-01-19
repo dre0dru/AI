@@ -5,9 +5,9 @@ namespace Dre0Dru.FSM
     [Serializable]
     public class StateMachine : IStateMachine
     {
-        private IState _currentState;
+        private IState? _currentState;
 
-        public IState CurrentState => _currentState;
+        public IState? CurrentState => _currentState;
 
         public virtual bool CanEnterState(IState state)
         {
@@ -51,24 +51,22 @@ namespace Dre0Dru.FSM
     }
 
     [Serializable]
-    public class StateMachine<TBaseState> : IStateMachine<TBaseState>
-        where TBaseState : IState<TBaseState>
+    public class StateMachine<TState> : IStateMachine<TState>
+        where TState : IState<TState>
     {
-        private TBaseState _currentState;
+        private TState? _currentState;
 
-        public TBaseState CurrentState => _currentState;
+        public TState? CurrentState => _currentState;
 
-        public virtual bool CanSwitchState<TState>(TState state)
-            where TState : TBaseState
+        public virtual bool CanSwitchState(TState state)
         {
             ThrowIfNull(state);
 
             return (_currentState == null || _currentState.CanExitState(state)) &&
-                   state.CanEnterState(_currentState);
+                   state.CanEnterState(_currentState!);
         }
 
-        public virtual bool TrySwitchState<TState>(TState state)
-            where TState : TBaseState
+        public virtual bool TrySwitchState(TState state)
         {
             ThrowIfNull(state);
 
@@ -81,8 +79,7 @@ namespace Dre0Dru.FSM
             return true;
         }
 
-        public virtual void ForceSwitchState<TState>(TState state)
-            where TState : TBaseState
+        public virtual void ForceSwitchState(TState state)
         {
             ThrowIfNull(state);
 
@@ -93,7 +90,56 @@ namespace Dre0Dru.FSM
             _currentState.OnStateEntered(previousState);
         }
 
-        private void ThrowIfNull(TBaseState state)
+        protected void ThrowIfNull(TState state)
+        {
+            if (state == null)
+            {
+                throw new ArgumentNullException(nameof(state));
+            }
+        }
+    }
+
+    [Serializable]
+    public class StateMachine<TState, TContext> : IStateMachine<TState, TContext>
+        where TState : IState<TContext>
+    {
+        private TState? _currentState;
+
+        public TState? CurrentState => _currentState;
+
+        public virtual bool CanSwitchState(TState state, TContext ctx)
+        {
+            ThrowIfNull(state);
+
+            return (_currentState == null || _currentState.CanExitState(ctx)) &&
+                   state.CanEnterState(ctx);
+        }
+
+        public virtual bool TrySwitchState(TState state, TContext ctx)
+        {
+            ThrowIfNull(state);
+
+            if (!CanSwitchState(state, ctx))
+            {
+                return false;
+            }
+
+            ForceSwitchState(state, ctx);
+            return true;
+        }
+
+        public virtual void ForceSwitchState(TState state, TContext ctx)
+        {
+            ThrowIfNull(state);
+
+            var previousState = _currentState;
+            previousState?.OnStateExited(ctx);
+
+            _currentState = state;
+            _currentState.OnStateEntered(ctx);
+        }
+
+        protected void ThrowIfNull(TState state)
         {
             if (state == null)
             {

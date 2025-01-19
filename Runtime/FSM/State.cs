@@ -42,24 +42,23 @@ namespace Dre0Dru.FSM
     }
 
     [Serializable]
-    public class State<TBaseState> : IState<TBaseState>
-        where TBaseState : IState<TBaseState>
+    public class State<TContext> : IState<TContext>
     {
-        public virtual bool CanEnterState(TBaseState from)
+        public virtual bool CanEnterState(TContext ctx)
         {
             return true;
         }
 
-        public virtual bool CanExitState(TBaseState to)
+        public virtual bool CanExitState(TContext ctx)
         {
             return true;
         }
 
-        public virtual void OnStateEntered(TBaseState from)
+        public virtual void OnStateEntered(TContext ctx)
         {
         }
 
-        public virtual void OnStateExited(TBaseState to)
+        public virtual void OnStateExited(TContext ctx)
         {
         }
 

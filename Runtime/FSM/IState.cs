@@ -12,16 +12,15 @@
     }
 
     //TODO as composition of different interfaces?
-    public interface IState<in TState>
-        where TState : IState<TState>
+    public interface IState<in TContext>
     {
-        bool CanEnterState(TState from);
+        bool CanEnterState(TContext ctx);
 
-        bool CanExitState(TState to);
+        bool CanExitState(TContext ctx);
 
-        void OnStateEntered(TState from);
+        void OnStateEntered(TContext ctx);
 
-        void OnStateExited(TState to);
+        void OnStateExited(TContext ctx);
     }
 
     public interface IKeyedState<out TKey>
@@ -32,5 +31,25 @@
     public interface IPriorityState
     {
         int Priority { get; }
+    }
+
+    public interface IReenterableState
+    {
+        bool CanReenterSelf();
+    }
+
+    public interface IReenterableState<in TContext>
+    {
+        bool CanReenterSelf(TContext ctx);
+    }
+
+    public interface IUpdatableState
+    {
+        void OnUpdate(float dt);
+    }
+
+    public interface IUpdatableState<in TContext>
+    {
+        void OnUpdate(TContext cxt, float dt);
     }
 }
